@@ -1,0 +1,16 @@
+{
+  "name": "loqate-polymer-demo",
+  "description": "",
+  "homepage": "",
+  "keywords": [
+  ],
+  "author": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.5.5",
+    "google-map": "PolymerLabs/google-map",
+    "core-ajax": "Polymer/core-ajax",
+    "core-input": "Polymer/core-input",
+    "polymer-jsonp": "PolymerLabs/polymer-jsonp"
+  }
+}
