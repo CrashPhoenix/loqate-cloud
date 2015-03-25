@@ -2,17 +2,17 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/polymer-jsonp/polymer-jsonp.html">
 <link rel="import" href="bower_components/core-input/core-input.html">
-<polymer-element name="loqate-demo" attributes="lqtkey inputAddress process">
+<polymer-element name="loqate-demo" attributes="lqtkey inputAddress process result">
   <template>
     <input is="core-input" committedValue="{{input}}">
     <h1>{{results.status}}</h1>
-    <!--<h1>{{results.results[0]}}</h1>-->
+    <h1>{{result}}</h1>
     <template repeat="{{a in results.results}}">
       {{a['AVC']}}<br/>
       {{a['Address1']}}<br/>
       {{a['Address2']}}<br/>
     </template>
-    
+
     <polymer-jsonp
       id="ajax"
       handleAs="json"
@@ -35,7 +35,11 @@
         this.$.ajax.go();
       },
       handleResponse: function(){
-        console.log(this.results.results[0]);
+        currentResults = this.results.results[0];
+        console.log(currentResults);
+        var avc = currentResults["AVC"];
+        if (avc.indexOf("V4") >= 0 || avc.indexOf("V5") >= 0)
+          this.result = currentResults["Address1"] + "<BR>" + currentResults["Address2"];
       }
     });
   </script>
