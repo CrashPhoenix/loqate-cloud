@@ -11,7 +11,7 @@
     "everythinglocation",
     "geocoding"
   ],
-  "author": "Justin Cano <justin.cano@loqate.com",
+  "author": "Justin Cano <justin.cano@loqate.com>",
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#0.5.5",
