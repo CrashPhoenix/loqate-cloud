@@ -18,17 +18,31 @@
 <body unresolved>
   <polymer-element name="my-element">
     <template>
-      <input is="core-input" committedValue="{{input}}">
+      <style>
+        p {
+          padding: 150px;
+          border: 1px solid black;
+        }
+        span {
+          border: 1px solid black;
+        }
+      </style>
+      <p>
+        Enter API Key: <span><input is="core-input" committedValue="{{key}}"></span><br/>
+        Enter Input Address: <span><input is="core-input" committedValue="{{input}}"></span><br/>
+      </p>
 
       <loqate-cloud
-       lqtkey="KEY"
+       lqtkey="{{key}}"
        inputAddress="{{input}}"
        status="{{status}}"
+       avc="{{avc}}"
        result="{{result}}">
       </loqate-cloud>
       <p>
-        {{status}}<br/>
-        {{result}}<br/>
+        Status: {{status}}<br/>
+        AVC: {{avc}}<br/>
+        Verified Address: {{result}}<br/>
       </p>
     </template>
     <script>

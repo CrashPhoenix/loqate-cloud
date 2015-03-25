@@ -31,8 +31,10 @@
         currentResults = this.results.results[0];
         console.log(currentResults);
         this.avc = currentResults["AVC"];
-        if (this.avc.indexOf("V4") >= 0 || avc.indexOf("V5") >= 0)
+        if (this.avc.indexOf("V4") >= 0 || this.avc.indexOf("V5") >= 0)
           this.result = currentResults["Address1"] + " " + currentResults["Address2"] + " " + currentResults["ISO3166-3"];
+        else
+          this.result = ''
       },
       buildURL: function(options) {
         var url = "https://saas.loqate.com/rest/?";
