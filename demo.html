@@ -9,16 +9,33 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-  
+  <link rel="import" href="bower_components/polymer/polymer.html">
   <link rel="import" href="loqate-demo.html">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body unresolved>
-  <loqate-demo
-   lqtkey="KEY"
-   inputAddress="999 baker way san mateo, ca usa">
-  </loqate-demo>
+  <polymer-element name="my-element">
+    <template>
+      <loqate-demo
+       lqtkey="KEY"
+       inputAddress="999 baker way san mateo, ca usa"
+       status="{{status}}"
+       result="{{result}}">
+      </loqate-demo>
+      <p>
+        {{status}}<br/>
+        {{result}}<br/>
+      </p>
+    </template>
+    <script>
+      Polymer('my-element', {
+        
+      });
+    </script>
+  </polymer-element>
+  
+  <my-element></my-element>
 </body>
 </html>
