@@ -5,6 +5,8 @@
   "main": "loqate-cloud.html",
   "homepage": "",
   "keywords": [
+    "web-component",
+    "web-components",
     "loqate",
     "address",
     "verification",
@@ -15,7 +17,6 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#0.5.5",
-    "google-map": "PolymerLabs/google-map",
     "core-ajax": "Polymer/core-ajax",
     "core-input": "Polymer/core-input",
     "polymer-jsonp": "PolymerLabs/polymer-jsonp"
