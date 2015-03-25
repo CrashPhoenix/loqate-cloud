@@ -1,11 +1,8 @@
 <!-- Import Polymer -->
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/polymer-jsonp/polymer-jsonp.html">
-<link rel="import" href="bower_components/core-input/core-input.html">
-<polymer-element name="loqate-demo" attributes="lqtkey inputAddress process result status">
+<polymer-element name="loqate-demo" attributes="lqtkey inputAddress process result status avc results">
   <template>
-    <input is="core-input" committedValue="{{input}}">
-
     <polymer-jsonp
       id="ajax"
       handleAs="json"
@@ -15,26 +12,36 @@
   </template>
   <script>
     Polymer('loqate-demo', {
-      lqtkey: null,
-      inputAddress: null,
+      lqtkey: '',
+      inputAddress: '',
       process: 'v',
       ready: function() {
-        this.$.ajax.url = "https://saas.loqate.com/rest/?";
-        if (this.lqtkey)
-          this.$.ajax.url += "lqtkey=" + this.lqtkey + "&";
-        if (this.inputAddress)
-          this.$.ajax.url += "addr=" + this.inputAddress + "&";
-        this.$.ajax.url += ("p=" + this.process + "&callback=");
+      },
+      inputAddressChanged: function(oldVal, newVal) {
+        options = {
+          "lqtkey=": this.lqtkey,
+          "addr=": newVal
+        };
+        this.$.ajax.url = this.buildURL(options);
         this.$.ajax.go();
       },
-      handleResponse: function(){
+      handleResponse: function() {
         /*console.log(this.results);*/
         this.status = this.results.status;
         currentResults = this.results.results[0];
         console.log(currentResults);
-        var avc = currentResults["AVC"];
-        if (avc.indexOf("V4") >= 0 || avc.indexOf("V5") >= 0)
-          this.result = currentResults["Address1"] + " " + currentResults["Address2"];
+        this.avc = currentResults["AVC"];
+        if (this.avc.indexOf("V4") >= 0 || avc.indexOf("V5") >= 0)
+          this.result = currentResults["Address1"] + " " + currentResults["Address2"] + " " + currentResults["ISO3166-3"];
+      },
+      buildURL: function(options) {
+        var url = "https://saas.loqate.com/rest/?";
+        for (option in options) {
+          url += option + options[option] + "&";
+        }
+        url += ("p=" + this.process + "&callback=");
+        console.log(url);
+        return url;
       }
     });
   </script>
