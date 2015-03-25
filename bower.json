@@ -1,10 +1,17 @@
 {
-  "name": "loqate-polymer-demo",
-  "description": "",
+  "name": "loqate-cloud",
+  "version": "0.0.0",
+  "description": "Unofficial Polymer Element Interface to the Loqate Cloud API",
+  "main": "loqate-cloud.html",
   "homepage": "",
   "keywords": [
+    "loqate",
+    "address",
+    "verification",
+    "everythinglocation",
+    "geocoding"
   ],
-  "author": "",
+  "author": "Justin Cano <justin.cano@loqate.com",
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#0.5.5",
