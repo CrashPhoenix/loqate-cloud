@@ -1,7 +1,7 @@
 <!-- Import Polymer -->
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/polymer-jsonp/polymer-jsonp.html">
-<polymer-element name="loqate-demo" attributes="lqtkey inputAddress process result status avc results">
+<polymer-element name="loqate-cloud" attributes="lqtkey inputAddress process result status avc results">
   <template>
     <polymer-jsonp
       id="ajax"
@@ -11,7 +11,7 @@
     </polymer-jsonp>
   </template>
   <script>
-    Polymer('loqate-demo', {
+    Polymer('loqate-cloud', {
       lqtkey: '',
       inputAddress: '',
       process: 'v',

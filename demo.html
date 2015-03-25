@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>loqate-polymer-demo</title>
+  <title>loqate-cloud polymer demo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
@@ -10,7 +10,7 @@
 
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <link rel="import" href="bower_components/polymer/polymer.html">
-  <link rel="import" href="loqate-demo.html">
+  <link rel="import" href="loqate-cloud.html">
   <link rel="import" href="bower_components/core-input/core-input.html">
 
   <link rel="stylesheet" href="styles.css">
@@ -21,12 +21,12 @@
     <template>
       <input is="core-input" committedValue="{{input}}">
 
-      <loqate-demo
+      <loqate-cloud
        lqtkey="KEY"
        inputAddress="{{input}}"
        status="{{status}}"
        result="{{result}}">
-      </loqate-demo>
+      </loqate-cloud>
       <p>
         {{status}}<br/>
         {{result}}<br/>
