@@ -1,6 +1,6 @@
 {
   "name": "loqate-cloud",
-  "version": "0.0.0",
+  "version": "0.1.2",
   "description": "Unofficial Polymer Element Interface to the Loqate Cloud API",
   "main": "loqate-cloud.html",
   "license": "MIT",
