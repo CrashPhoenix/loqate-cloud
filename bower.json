@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Unofficial Polymer Element Interface to the Loqate Cloud API",
   "main": "loqate-cloud.html",
+  "license": "MIT",
   "homepage": "",
   "keywords": [
     "web-component",
