@@ -1,7 +1,7 @@
 <!-- Import Polymer -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
-<polymer-element name="loqate-cloud" attributes="lqtkey inputAddress process result status avc results">
+<polymer-element name="loqate-cloud" attributes="lqtkey inputAddress process result status avc results latitude longitude">
   <template>
     <polymer-jsonp
       id="ajax"
@@ -14,7 +14,9 @@
     Polymer('loqate-cloud', {
       lqtkey: '',
       inputAddress: '',
-      process: 'v',
+      process: 'v%2Bg',
+      latitude: '',
+      longitude: '',
       ready: function() {
       },
       inputAddressChanged: function(oldVal, newVal) {
@@ -35,6 +37,10 @@
           this.result = currentResults["Address1"] + " " + currentResults["Address2"] + " " + currentResults["ISO3166-3"];
         else
           this.result = ''
+        if (process.indexOf("g") >= 0) {
+          this.latitude = currentResults["Latitude"];
+          this.longitude = currentResults["Longitude"];
+        }
       },
       buildURL: function(options) {
         var url = "https://saas.loqate.com/rest/?";
